@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Nexvern Original Blues */
+  --primary: #1324a7;
+  --primary-dark: #0a1254;
+  --secondary: #3b5bdb;
+  --accent: #bac8ff;
+  
+  /* Light Tech Theme */
+  --bg-light: #ffffff;
+  --bg-lighter: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.8);
+  --bg-card: #ffffff;
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-blue: rgba(19, 36, 167, 0.15);
+  
+  --gradient-blue: linear-gradient(135deg, #1324a7 0%, #3b5bdb 100%);
+  --gradient-accent: linear-gradient(135deg, #3b5bdb 0%, #bac8ff 100%);
+  
+  --glow-blue: 0 10px 40px rgba(19, 36, 167, 0.15);
+  --glow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-light);
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-lighter);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: var(--bg-light);
+}
+
+/* Utilities */
+.gradient-text {
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.gradient-text-2 {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary {
+  background: var(--gradient-blue);
+  color: var(--bg-light);
+  border: none;
+  box-shadow: var(--glow-blue);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3b5bdb 0%, #1324a7 100%);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(19, 36, 167, 0.3);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: inset 0 0 10px rgba(19, 36, 167, 0.05);
+}
+
+.btn-outline:hover {
+  background: rgba(19, 36, 167, 0.05);
+  box-shadow: inset 0 0 20px rgba(19, 36, 167, 0.1), 0 10px 20px rgba(19, 36, 167, 0.1);
+  transform: translateY(-2px);
+}
